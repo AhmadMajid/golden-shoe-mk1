@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "pages#home"
+  resources :sessions, only: [:create]
   devise_for :users
+  get 'users/:id' => 'users#show', as: :user
 end
